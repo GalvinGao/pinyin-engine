@@ -32,6 +32,33 @@ describe('PinyinEngine()', () => {
                 name: '中央美院'
             }], pinyinEngine.query('meiyuan'));
         });
+        it('索引取值应当支持 path 格式', () => {
+            const pinyinEngine = new PinyinEngine([{
+                id: 0,
+                deep: {
+                    name: '清华大学'
+                }
+            },
+                {
+                    id: 1,
+                    deep: {
+                        name: '北京大学'
+                    }
+                },
+                {
+                    id: 3,
+                    deep: {
+                        name: '中央美院'
+                    }
+                }
+            ], ['deep.name']);
+            assert.deepEqual([{
+                id: 3,
+                deep: {
+                    name: '中央美院'
+                }
+            }], pinyinEngine.query('meiyuan'));
+        });
         it('应当支持拼音首字母', () => {
             const pinyinEngine = new PinyinEngine([
                 '清华大学',

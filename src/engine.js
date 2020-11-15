@@ -21,7 +21,7 @@ class Engine {
                 keywords = Engine.participle(item, dict, prefix);
             } else {
                 for (const key of indexs) {
-                    const words = resolve(item, key);
+                    const words = resolve(key, item);
                     if (words) {
                         keywords += Engine.participle(words, dict, prefix);
                     }
