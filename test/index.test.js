@@ -14,7 +14,8 @@ describe('PinyinEngine()', () => {
             assert.deepEqual(['中央美院'], pinyinEngine.query('meiyuan'));
         });
         it('数据应当支持 `[Object]`', () => {
-            const pinyinEngine = new PinyinEngine([{
+            const pinyinEngine = new PinyinEngine([
+                {
                     id: 0,
                     name: '清华大学'
                 },
@@ -34,11 +35,11 @@ describe('PinyinEngine()', () => {
         });
         it('索引取值应当支持 path 格式', () => {
             const pinyinEngine = new PinyinEngine([{
-                id: 0,
-                deep: {
-                    name: '清华大学'
-                }
-            },
+                    id: 0,
+                    deep: {
+                        name: '清华大学'
+                    }
+                },
                 {
                     id: 1,
                     deep: {
